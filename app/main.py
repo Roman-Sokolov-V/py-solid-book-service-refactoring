@@ -9,7 +9,7 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
             if not hasattr(serializer, method_type):
                 raise ValueError(f"Unknown serialize type: {method_type}")
             return getattr(serializer, method_type)()
-        elif hasattr(book, cmd) is True:
+        elif hasattr(book, cmd):
             getattr(book, cmd)(method_type)
             return None
         else:
