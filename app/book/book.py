@@ -11,7 +11,7 @@ class Book:
         else:
             raise ValueError(f"Unknown display type: {display_type}")
 
-    def print(self, print_type: str) -> None:
+    def print_book(self, print_type: str) -> None:
         if print_type == "console":
             print(f"Printing the book: {self.title}...")
             print(self.content)

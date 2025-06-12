@@ -4,6 +4,8 @@ from app.book.book import Book
 
 def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
     for cmd, method_type in commands:
+        if cmd == "print":
+            cmd = "print_book"
         if cmd == "serialize":
             serializer = BookSerializer(book)
             if not hasattr(serializer, method_type):
@@ -11,9 +13,6 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
             return getattr(serializer, method_type)()
         elif hasattr(book, cmd):
             getattr(book, cmd)(method_type)
-            return None
-        else:
-            return None
     return None
 
 
